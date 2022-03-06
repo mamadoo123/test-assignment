@@ -45,32 +45,4 @@ export const products = [
         dummyImageInfo,
         dummyNotes
     ),
-    new Product(
-        'p5', 
-        'Printer Inc',
-        require('../../assets/images/item4.png'),  
-        dummyImageInfo,
-        dummyNotes
-    ),
-    new Product(
-        'p6', 
-        'Printer Inc',
-        require('../../assets/images/item4.png'),  
-        dummyImageInfo,
-        dummyNotes
-    ),
-    new Product(
-        'p7', 
-        'Printer Inc',
-        require('../../assets/images/item4.png'),  
-        dummyImageInfo,
-        dummyNotes
-    ),
-    new Product(
-        'p8', 
-        'Printer Inc',
-        require('../../assets/images/item4.png'),  
-        dummyImageInfo,
-        dummyNotes
-    ),
 ]

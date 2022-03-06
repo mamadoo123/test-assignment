@@ -9,7 +9,6 @@ import { products } from '../../data/dummy/products';
 import { Note } from '../../data/model/note';
 
 
-
 const ModelDetailsScreen = ({navigation, route}) => {
   const product = products.find(p => p.id === route.params.productId);
   const [noteText, setNoteText] = useState('');
