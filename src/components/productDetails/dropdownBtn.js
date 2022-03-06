@@ -3,10 +3,10 @@ import { StyleSheet, Text, View,  TouchableWithoutFeedback } from 'react-native'
 import DefaultText from '../defaultText';
 import colors from '../../constants/colors'
 
-const DropdownBtn = ({children, title}) => {
+const DropdownBtn = ({children, title, isLast}) => {
     const [show, setShow] = useState(false);
   return (
-    <View style={styles.container}>
+    <View style={{...styles.container, borderBottomWidth: (isLast && show) ? 0 : 1}}>
         <TouchableWithoutFeedback
             onPress={() => setShow(!show)} 
             style={{width: '100%'}}
@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
         paddingVertical: 16,
         paddingHorizontal: 10,
         borderColor: colors.grayDark,
-        borderBottomWidth: 1,
         borderTopWidth: 1
     },
     btn:{
