@@ -16,7 +16,17 @@ const ModelDetailsScreen = ({navigation, route}) => {
 
   const saveNote = () => {
     if(noteText.trim().length > 0){
-      setNotes([...notes, new Note(new Date().toString(), "Mohamed Sayed", new Date(), noteText)])
+      setNotes(
+        [
+          ...notes, 
+          new Note(
+            new Date().toString(), 
+            "Mohamed Sayed", 
+            new Date(), 
+            noteText
+          )
+        ]
+      )
     }
   }
 
