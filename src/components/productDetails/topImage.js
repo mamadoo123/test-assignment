@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   shadow:{
-    height: 160,
-    width: Width * 0.6,
+    height: 150,
+    width: Width * 0.55,
     borderRadius: 20,
     ...Platform.select({
       ios: {
@@ -42,8 +42,8 @@ const styles = StyleSheet.create({
     }),
   },
   image: {
-    height: 160,
-    width: Width * 0.6,
+    height: 150,
+    width: Width * 0.55,
     borderRadius: 20,
   },
 })

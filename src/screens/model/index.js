@@ -24,36 +24,36 @@ const ModelsListScreen = ({navigation}) => {
 
   return (
     <KeyboardScreen>
-        <View style={styles.screen}>
-          
-          <View style={styles.body}>
-            <TextInput
-              style={styles.input}
-              placeholder={"Type to Search"}
-              value={searchValue}
-              onChangeText={setSearchValue}
-              placeholderTextColor={'#c4c4c4'}
-            />
-          </View>
+      <View style={styles.screen}>
 
-          
-          <View style={styles.body}>
-            <FlatList 
-              removeClippedSubviews
-              contentContainerStyle={{
-                flexGrow: 1,
-                alignItems: 'center'
-              }} 
-              data={products} 
-              renderItem={renderItem}
-              numColumns={2}
-              key={"Grid"}
-              ItemSeparatorComponent={() => 
-                <View style={styles.separator} />
-              }
-            />
-          </View>
+        <View style={styles.body}>
+          <TextInput
+            style={styles.input}
+            placeholder={"Type to Search"}
+            value={searchValue}
+            onChangeText={setSearchValue}
+            placeholderTextColor={'#c4c4c4'}
+          />
         </View>
+        
+        <View style={styles.body}>
+          <FlatList 
+            removeClippedSubviews
+            contentContainerStyle={{
+              flexGrow: 1,
+              alignItems: 'center'
+            }} 
+            data={products} 
+            renderItem={renderItem}
+            numColumns={2}
+            showsVerticalScrollIndicator={false}
+            key={"Grid"}
+            ItemSeparatorComponent={() => 
+              <View style={styles.separator} />
+            }
+          />
+        </View>
+      </View>
     </KeyboardScreen>
   )
 }
@@ -64,7 +64,8 @@ const styles = StyleSheet.create({
   screen:{
     flex: 1,  
     alignItems: 'center',
-    backgroundColor: colors.background
+    backgroundColor: colors.background,
+    paddingBottom: Height * 0.12,
   },
   body:{
     width: Width * 0.85,
