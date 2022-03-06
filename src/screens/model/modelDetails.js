@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import { TopImage } from '../../components/productDetails';
+import { TopImage, DropdownBtn } from '../../components/productDetails';
+import ItemDescription from '../../components/productDetails/itemDescription';
 import colors from '../../constants/colors';
 import { products } from '../../data/dummy/products';
 
@@ -12,6 +13,13 @@ const ModelDetailsScreen = ({navigation, route}) => {
     <ScrollView contentContainerStyle={styles.screen}>
       <View style={styles.body}>
         <TopImage imgSource={product.img} />
+        
+        <DropdownBtn title={"Image Info"}>
+          <ItemDescription itemInfo={product.imgInfo} />
+        </DropdownBtn>
+
+        <DropdownBtn title={"Notes"} />
+        
       </View>
     </ScrollView>
   )
@@ -19,13 +27,11 @@ const ModelDetailsScreen = ({navigation, route}) => {
 
 const styles = StyleSheet.create({
   screen: {
-    flex:1,
     flexGrow: 1,
     alignItems: "center",
     backgroundColor: colors.background,
   },
   body:{
-    flexDirection: 'column',
     width: '90%',
     alignItems: 'center',
     justifyContent: 'center',
@@ -34,7 +40,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 20,
     borderRadius: 20,
-    backgroundColor: colors.grayDark
+    backgroundColor: colors.grayMedium,
+    elevation: 3
   }
 })
 

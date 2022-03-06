@@ -7,7 +7,14 @@ const dummyNotes = [
     new Note('n2', 'Mohamed Khamis', new Date(), 'amazing item....'),   
 ];
 
-const dummyImageInfo = new ImageInfo('Gt2000', 'Gt2000', 'Hello1', '30 $', 'category', '')
+//const dummyImageInfo = new ImageInfo('Gt2000', 'Gt2000', 'Hello1', '30 $', 'category', '')
+const dummyImageInfo = {
+    'Model':'Gt2000',
+    'Model Name': 'Gt2000', 
+    "Model Type": "Hello", 
+    "Cost": "20 $", 
+    "Additional Description": "you can write any description here it should fit its container"
+}
 
 export const products = [
     new Product(
