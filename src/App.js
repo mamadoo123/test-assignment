@@ -23,7 +23,7 @@ const App = () => {
         initialRouteName={'Home'}
         screenOptions={{
           headerLeft: (props) => <HeaderLeft {...props} />,
-          headerStyle: {backgroundColor: colors.grayDark, elevation: 15, borderBottomWidth: 4, height: Height * 0.1 },
+          headerStyle,
           headerTitleStyle: {marginTop: -10, marginLeft: -10}
         }}
       >
@@ -64,6 +64,13 @@ const App = () => {
       </Stack.Navigator>
     </NavigationContainer>
   )
+}
+
+const headerStyle = {
+  backgroundColor: colors.grayDark, 
+  elevation: 15, 
+  borderBottomWidth: 4, 
+  height: Height * 0.1
 }
 
 export default App;
