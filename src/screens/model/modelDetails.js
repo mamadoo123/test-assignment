@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { View, StyleSheet, ScrollView, TextInput } from 'react-native';
 import DefaultText from '../../components/defaultText';
+import KeyboardScreen from '../../components/keyboardScreen';
 import { TopImage, DropdownBtn, NoteList, ItemDescription, ErrorContainer, SaveBtn } from '../../components/productDetails';
 import colors from '../../constants/colors';
 import {Height} from '../../constants/dimensions';
@@ -25,43 +26,45 @@ const ModelDetailsScreen = ({navigation, route}) => {
   }
  
   return (
-    <ScrollView contentContainerStyle={styles.screen}>
-      <View style={styles.body}>
-        
-        <TopImage imgSource={product.img} />
-        
-        <DropdownBtn title={"Image Info"}>
-          <ItemDescription itemInfo={product.imgInfo} />
-        </DropdownBtn>
+    <KeyboardScreen>
+      <ScrollView contentContainerStyle={styles.screen}>
+        <View style={styles.body}>
+          
+          <TopImage imgSource={product.img} />
+          
+          <DropdownBtn title={"Image Info"}>
+            <ItemDescription itemInfo={product.imgInfo} />
+          </DropdownBtn>
 
-        <DropdownBtn 
-          title={"Notes"} 
-          isLast={true} 
-        >
-          <View style={{width: '100%', marginTop: 7,}}>
-            <SaveBtn 
-              onPress={saveNote} 
-              style={styles.saveBtn} 
-            />
-            
-            <TextInput
-              style={styles.input}
-              placeholder={"Add a Note..."}
-              value={noteText}
-              onChangeText={setNoteText}
-              placeholderTextColor={'#c4c4c4'}
-            />
+          <DropdownBtn 
+            title={"Notes"} 
+            isLast={true} 
+          >
+            <View style={{width: '100%', marginTop: 7,}}>
+              <SaveBtn 
+                onPress={saveNote} 
+                style={styles.saveBtn} 
+              />
+              
+              <TextInput
+                style={styles.input}
+                placeholder={"Add a Note..."}
+                value={noteText}
+                onChangeText={setNoteText}
+                placeholderTextColor={'#c4c4c4'}
+              />
 
-            <DefaultText textColor={colors.black}>
-              History Notes
-            </DefaultText>
+              <DefaultText textColor={colors.black}>
+                History Notes
+              </DefaultText>
 
-            <NoteList notes={notes} />
-          </View>
-        </DropdownBtn>
-        
-      </View>
-    </ScrollView>
+              <NoteList notes={notes} />
+            </View>
+          </DropdownBtn>
+          
+        </View>
+      </ScrollView>
+    </KeyboardScreen>
   )
 }
 

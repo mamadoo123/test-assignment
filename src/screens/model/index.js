@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
-import { View, Text, TouchableOpacity, StyleSheet, TextInput, FlatList } from 'react-native'
+import { View, StyleSheet, TextInput, FlatList } from 'react-native'
+import KeyboardScreen from '../../components/keyboardScreen';
 import ProductItem from '../../components/productItem';
 import colors from '../../constants/colors';
-import {Width, Height, Font} from '../../constants/dimensions';
+import {Width, Height} from '../../constants/dimensions';
 import { products } from '../../data/dummy/products';
 
 const ModelsListScreen = ({navigation}) => {
@@ -11,37 +12,49 @@ const ModelsListScreen = ({navigation}) => {
   const renderItem = ({item})=>(
     <ProductItem 
       item={item} 
-      onPress={() => navigation.navigate('ModelDetails', {productId: item.id})}
+      onPress={() => 
+        navigation.navigate('ModelDetails', {
+          productId: item.id
+        })
+      }
       title={item.name}
       imgSource = {item.img}
     />
   );
 
   return (
-    <View style={styles.screen}>
-      <View style={styles.body}>
-        <TextInput
-          style={styles.input}
-          placeholder={"Type to Search"}
-          value={searchValue}
-          onChangeText={setSearchValue}
-          placeholderTextColor={'#c4c4c4'}
-        />
-      </View>
+    <KeyboardScreen>
+        <View style={styles.screen}>
+          
+          <View style={styles.body}>
+            <TextInput
+              style={styles.input}
+              placeholder={"Type to Search"}
+              value={searchValue}
+              onChangeText={setSearchValue}
+              placeholderTextColor={'#c4c4c4'}
+            />
+          </View>
 
-      
-      <View style={styles.body}>
-        <FlatList 
-          removeClippedSubviews
-          contentContainerStyle={{flexGrow: 1,alignItems: 'center'}} 
-          data={products} 
-          renderItem={renderItem}
-          numColumns={2}
-          key={"Grid"}
-          ItemSeparatorComponent={() => <View style={styles.separator} />}
-        />
-      </View>
-    </View>
+          
+          <View style={styles.body}>
+            <FlatList 
+              removeClippedSubviews
+              contentContainerStyle={{
+                flexGrow: 1,
+                alignItems: 'center'
+              }} 
+              data={products} 
+              renderItem={renderItem}
+              numColumns={2}
+              key={"Grid"}
+              ItemSeparatorComponent={() => 
+                <View style={styles.separator} />
+              }
+            />
+          </View>
+        </View>
+    </KeyboardScreen>
   )
 }
 
